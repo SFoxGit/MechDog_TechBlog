@@ -1,5 +1,5 @@
 {
-  "name": "MechDog_TechBlog",
+  "name": "mechdog_techblog",
   "version": "1.0.0",
   "description": "Tech blog site, complete with login/logout function, posts, comments. Using: Handlebars.js, Sequelize, and Express-session",
   "main": "server.js",
