@@ -1,0 +1,3 @@
+DROP DATABASE IF EXISTS mechdog_db;
+
+CREATE DATABASE mechdog_db;
