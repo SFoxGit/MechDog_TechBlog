@@ -1,0 +1,21 @@
+{
+  "name": "MechDog_TechBlog",
+  "version": "1.0.0",
+  "description": "Tech blog site, complete with login/logout function, posts, comments. Using: Handlebars.js, Sequelize, and Express-session",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SFoxGit/MechDog_TechBlog.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SFoxGit/MechDog_TechBlog/issues"
+  },
+  "homepage": "https://github.com/SFoxGit/MechDog_TechBlog#readme"
+}
