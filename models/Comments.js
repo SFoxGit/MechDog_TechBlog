@@ -5,6 +5,15 @@ class Comments extends Model {}
 
 Comments.init(
   {
+
+    blog_id: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      references: {
+        model: 'blogs',
+        key: 'id',
+      }
+    },
     message: {
       type: DataTypes.STRING,
       allowNull: false,
