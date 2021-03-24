@@ -1,4 +1,4 @@
-const User = require('./Users');
+const User = require('./User');
 const Blog = require('./Blogs');
 const Comments = require('./Comments');
 
@@ -14,4 +14,6 @@ Blog.hasMany(Comments, {
   foreignKey: 'blog_id',
 });
 
-Comments.
+Comments.belongsTo(Blog, {
+  foreignKey: 'blog_id',
+});

@@ -9,11 +9,11 @@ Blogs.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    user: {
-      type: DataTypes.STRING,
+    user_id: {
+      type: DataTypes.INTEGER,
       references: {
         model: 'user',
-        key: 'username',
+        key: 'id',
       }
     },
     message: {
