@@ -22,4 +22,8 @@ Comments.belongsTo(Blogs, {
   foreignKey: 'blogs_id',
 });
 
+Comments.belongsTo(User, {
+  foreignKey: 'user_id'
+});
+
 module.exports = { User, Blogs, Comments};
