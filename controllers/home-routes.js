@@ -3,7 +3,7 @@ const { Blogs, User, Comments } = require('../models');
 const withAuth = require('../utils/auth');
 
 
-router.get('/', withAuth, async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     const blogData = await Blogs.findAll({
       include: [
@@ -24,7 +24,7 @@ router.get('/', withAuth, async (req, res) => {
   }
 });
 
-router.get('/blogs/:id', withAuth, async (req, res) => {
+router.get('/blogs/:id', async (req, res) => {
   try {
     const blogData = await Blogs.findOne({
       where: { id: req.params.id },
