@@ -2,9 +2,10 @@
   <div class="row">
     <div class="col-12">MechDog TechBlogs</div>
     {{#each blogs as |blog|}}
-    <div class="col-12">{{blog.title}}</div>
+    <div class="col-12 bg-dark text-light">{{blog.title}}</div>
     <div class="col-12">{{blog.message}}</div>
-    <div class="col-12">{{User.[blog.user_id].username}}</div>
+    <div class="col-6">{{blog.user.username}}</div>
+    <div class="col-6">{{format_date blog.createdAt}}</div>
     {{/each}}
   </div>
 </div>
