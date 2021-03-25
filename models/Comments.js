@@ -5,14 +5,11 @@ class Comments extends Model {}
 
 Comments.init(
   {
-
-    blog_id: {
-      type: DataTypes.STRING,
+    id: {
+      type: DataTypes.INTEGER,
       allowNull: false,
-      references: {
-        model: 'blogs',
-        key: 'id',
-      }
+      primaryKey: true,
+      autoIncrement: true,
     },
     message: {
       type: DataTypes.STRING,
@@ -24,14 +21,14 @@ Comments.init(
         model: 'user',
         key: 'id',
       }
-    }
+    },
   },
   {
     sequelize,
     timestamps: true,
     freezeTableName: true,
     underscored: true,
-    modelName: 'blogs',
+    modelName: 'comments',
   }
 );
 
