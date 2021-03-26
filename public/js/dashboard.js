@@ -1,24 +1,27 @@
-const buttons = document.querySelectorAll(".bbb");
-
+const newBlogText = document.querySelector('.blogText');
+const form = document.querySelector(".update-form");
 
 const blogUpdate = async (event) => {
   await event.preventDefault();
-  console.log(this.getAttribute('form'))
-  
-  const updateBlog = await fetch(`/api/blogs/${this.getAttribute('form')}`, {
+  const message = JSON.stringify({ "message": newBlogText.value });
+  console.log(message);
+  const updateBlog = await fetch(`/api/blogs/${form.getAttribute('id')}`, {
     method: 'PUT',
-    body: { "message": this.previousElementSibling.value },
+    body: message,
+    headers: {
+      'Content-Type': 'application/json',
+    },
   });
   if (updateBlog.ok) {
     console.log('okay');
-    document.reload();
+    location.reload();
   } else {
     console.log('failed to update blog')
   }
 }
 
 
-document.querySelector(".bbb").addEventListener('submit', blogUpdate)
+form.addEventListener('submit', blogUpdate)
 document.querySelector('#newBlog').addEventListener('click', (event) => {
   event.preventDefault();
   document.location.replace('/newBlog')
