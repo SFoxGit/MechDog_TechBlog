@@ -17,6 +17,7 @@ router.get('/', async (req, res) => {
     const blogs = JSON.parse(JSON.stringify(blogData));
     res.render('homepage', {
       blogs,
+      logged_in: req.session.logged_in
     });
   } catch (err) {
     console.log(err);
@@ -49,6 +50,27 @@ router.get('/blogs/:id', async (req, res) => {
     res.render('blogs', {
       blogs,
       comments,
+      loggedIn: req.session.loggedIn
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+})
+
+router.get('/dashboard', withAuth, async (req, res) => {
+  try {
+    const userBlogs = await User.findByPk(req.session.user_id, {
+      include: [
+        {
+          model: Blogs,
+        }
+      ]
+    });
+    const userData = JSON.parse(JSON.stringify(userBlogs));
+    res.render('dashboard', {
+      userData,
+      loggedIn: true,
     });
   } catch (err) {
     console.log(err);
@@ -63,6 +85,17 @@ router.get('/login', (req, res) => {
   }
 
   res.render('login');
+});
+
+router.get('/newBlog', async (req, res) => {
+  try {
+    res.render('newBlog', {
+      logged_in: req.session.logged_in
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
 });
 
 module.exports = router;

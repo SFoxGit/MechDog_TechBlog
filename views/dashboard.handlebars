@@ -1,0 +1,15 @@
+<div class="col-12">
+  <div class="row">
+    <div class="col-8">MechDog TechBlogs</div>
+    <button class="col-4" id="newBlog" type="button">New Blog</button>
+    {{#each userData.blogs as |blog|}}
+    <div class="col-6 bg-dark text-light"><a href="/blogs/{{blog.id}}">{{blog.title}}</a></div>
+    <div class="col-6 bg-dark text-light">{{format_date blog.createdAt}}</div>
+    <form class="col-12" id="{{blog.id}}">
+      <textarea class="col-12">{{blog.message}}</textarea>
+      <button class="bbb" type="submit" form="{{blog.id}}">Submit</button>
+    </form>
+    {{/each}}
+  </div>
+</div>
+<script src="/js/dashboard.js"></script>
