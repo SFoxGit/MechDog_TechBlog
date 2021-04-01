@@ -15,10 +15,10 @@
     <div class="col-10 comments">
       <div class="row ">
         <div class="col-12 blogC">{{comment.message}}</div>
-        <div class="col-6"></div>
+        <div class="col-6 userId" data-userId="{{comment.user_id}}" data-commentid={{comment.id}}></div>
         <div class="col-6 innerComment">
           <div class="row">
-            <div class="col-6 user userId" data-userId="{{comment.user_id}}"></div>
+            <div class="col-6 user" ></div>
             <div class="col-xs-6 user text-right">{{comment.user.username}} {{format_date comment.createdAt}}</div>
           </div>
         </div>
@@ -27,7 +27,7 @@
     {{/each}}
     <form class="col-12 update-form newBlog p-4" id="{{blogs.id}}">
       <textarea class="col-12 blogText" placeholder="Add your comment"></textarea>
-      <button class="btn mt-2" type="submit" form="{{blogs.id}}">comment</button>
+      <button class="btn mt-2" data-id="{{id}}" type="submit" form="{{blogs.id}}">comment</button>
     </form>
   </div>
 </div>

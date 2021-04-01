@@ -19,10 +19,30 @@ const postComment = async () => {
     console.log('failed to update blog')
   }
 }
-console.log(form.getAttribute('id'))
 
 form.addEventListener('submit', postComment)
 
-const userId = document.querySelectorAll('.userId')
+const getId = document.querySelectorAll('.userId')
+const sessionId = document.querySelector('button').dataset.id
 
-userId.forEach(userID => console.log(userID.dataset.userId))
+getId.forEach(function(userID) {
+  if (userID.dataset.userid === sessionId) {
+    userID.innerHTML = `<button class="delete" type="click">X</button>`;
+    // const deleteComment = document.querySelectorAll('.delete');
+    const commentID = userID.dataset.commentid
+    userID.firstElementChild.addEventListener('click', function() {
+      const commentDelete = async (event) => {
+        const deleteComment = await fetch(`/api/comments/${commentID}`, {
+          method: 'DELETE',
+        })
+        if (deleteComment.ok) {
+          document.location.reload()
+        } else {
+          console.log('failed to delete')
+        }
+      }
+      commentDelete();
+    })
+  }
+})
+

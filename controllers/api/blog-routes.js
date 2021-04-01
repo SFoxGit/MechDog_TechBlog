@@ -90,7 +90,8 @@ router.get('/view/:id', withAuth, async (req, res) => {
     res.render('blogs', {
       blogs,
       comments,
-      loggedIn: true
+      loggedIn: true,
+      id: req.session.user_id
     });
   } catch (err) {
     console.log(err);
