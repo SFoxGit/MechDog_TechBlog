@@ -1,0 +1,123 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Playfair Display SC", serif;
+  height: 100%;
+  background-color: tan;
+  font-size: 20px;
+}
+
+.blogLink {
+  margin-top: 20px;
+  font-weight: bolder;
+}
+
+a {
+  text-decoration: none !important;
+  color: white;
+}
+
+.navLinks {
+ text-align: center;
+ font-size: 40px;
+}
+
+.navLinks:hover {
+  color: white !important;
+  background-color: teal;
+  border-radius: 20px;
+  border: solid;
+  border-color: white;
+}
+
+.blog-header-logo {
+  font-size: 60px;
+  text-align: center;
+}
+
+.container-fluid {
+  border-bottom: solid;
+  border-color: black;
+  margin-bottom: 20px;
+}
+
+.subhead {
+  text-align: center;
+  font-size: 30px;
+
+}
+
+.white {
+  color: white;
+}
+
+.btn {
+  background-color: white;
+  color: teal;
+  border: solid;
+  border-color: teal;
+}
+
+.btn:hover {
+  background-color: teal;
+  color: white;
+  border: solid;
+  border-color: white;
+}
+
+.newBlog {
+  margin-top: 30px;
+  background-color: teal;
+  border: solid;
+  border-color: white;
+  border-radius: 25px;
+
+}
+
+#message-post {
+  height: 200px;
+  text-align: start;
+}
+
+.blog {
+  background-color: teal;
+  color: white;
+}
+
+.blogC {
+  background-color: teal;
+  color: white;
+  
+}
+
+
+.comments {
+  border: solid;
+  border-radius: 20px;
+  border-color: white;
+  background-color: teal;
+  margin-top: 30px;
+  padding: 30px;
+}
+
+.newBlogBtn {
+  margin-top: 30px;
+}
+
+.text-right {
+  color: tan;
+}
+
+#titleMess {
+  color: white !important;
+}
+
+#mess {
+  color: white !important;
+}
+
+.form-group {
+  color: white;
+}

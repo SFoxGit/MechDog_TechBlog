@@ -1,13 +1,13 @@
 const newBlogText = document.querySelector('.blogText');
-const form = document.querySelectorAll(".update-form");
+const form = document.querySelector(".update-form");
+const id = form.getAttribute('id')
 
 const blogUpdate = async (event) => {
   // await event.preventDefault();
-  const id = event.target.getAttribute('id')
   console.log(id)
   const message = await JSON.stringify({ "message": newBlogText.value });
   console.log(message);
-  const updateBlog = await fetch(`/api/blogs/${form.getAttribute('id')}`, {
+  const updateBlog = await fetch(`/api/blogs/${id}`, {
     method: 'PUT',
     body: message,
     headers: {
@@ -20,13 +20,19 @@ const blogUpdate = async (event) => {
   } else {
     console.log('failed to update blog')
   }
-}
+};
 
-
-for (const submission of form) {
-  submission.addEventListener('click', blogUpdate)
-}
-document.querySelector('#newBlog').addEventListener('click', (event) => {
+const blogDelete = async (event) => {
   event.preventDefault();
-  document.location.replace('/newBlog')
-})
+  const deleteBlog = await fetch(`/api/blogs/${id}`, {
+    method: 'DELETE',
+  })
+  if (deleteBlog.ok) {
+    document.location.replace('/dashboard')
+  } else {
+    console.log('failed to delete')
+  }
+}
+
+form.addEventListener('submit', blogUpdate);
+document.getElementById('delete').addEventListener('click', blogDelete);

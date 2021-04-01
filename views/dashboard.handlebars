@@ -1,15 +1,15 @@
 <div class="col-12">
   <div class="row">
-    <div class="col-8">MechDog TechBlogs</div>
-    <button class="col-4" id="newBlog" type="button">New Blog</button>
+    <div class="col-12 subhead">Mech<span style="color:white">Dog</span> Tech<span class="white">Blogs</span></div>
     {{#each userData.blogs as |blog|}}
-    <div class="col-6 bg-dark text-light"><a href="/blogs/{{blog.id}}">{{blog.title}}</a></div>
-    <div class="col-6 bg-dark text-light">{{format_date blog.createdAt}}</div>
-    <form class="col-12 update-form" id="{{blog.id}}">
-      <textarea class="col-12 blogText">{{blog.message}}</textarea>
-      <button class="bbb" type="submit" form="{{blog.id}}">Submit</button>
-    </form>
+    <div class="col-12 blog comments">
+      <div class="row">
+        <div class="col-6 "><a href="/api/blogs/{{blog.id}}">{{blog.title}}</a></div>
+        <div class="col-6 text-right">{{format_date blog.createdAt}}</div>
+      </div>
+    </div>
     {{/each}}
+    <button class="col-2 btn newBlogBtn" id="newBlog" type="button">New Blog</button>
   </div>
 </div>
 <script src="/js/dashboard.js"></script>

@@ -1,15 +1,34 @@
 <div class="col-12">
   <div class="row">
-    <div class="col-12">MechDog TechBlogs</div>
+    <div class="col-12 subhead">Mech<span style="color:white">Dog</span> Tech<span class="white">Blogs</span></div>
+    <div class="col-12 comments">
+      <div class="row">
+        <div class="col-12 bg-dark text-light">{{title}}</div>
+        <div class="col-12 blog">{{blogs.message}}</div>
+        <div class="col-6 user text-dark"></div>
+        <div class="col-6 user text-right">{{blogs.user.username}} {{format_date blogs.createdAt}}</div>
 
-    <div class="col-12 bg-dark text-light">{{title}}</div>
-    <div class="col-12">{{blogs.message}}</div>
-    <div class="col-6">{{blogs.user.username}}</div>
-    <div class="col-6">{{format_date blogs.createdAt}}</div>
+      </div>
+    </div>
     {{#each comments as |comment|}}
-    <div class="col-12">{{comment.message}}</div>
-    <div class="col-6">{{comment.user.username}}</div>
-    <div class="col-6">{{format_date comment.createdAt}}</div>
+    <div class="col-2"></div>
+    <div class="col-10 comments">
+      <div class="row ">
+        <div class="col-12 blogC">{{comment.message}}</div>
+        <div class="col-6"></div>
+        <div class="col-6 innerComment">
+          <div class="row">
+            <div class="col-6 user text-dark"></div>
+            <div class="col-6 user text-right">{{comment.user.username}} {{format_date comment.createdAt}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
     {{/each}}
+    <form class="col-12 update-form newBlog p-4" id="{{blogs.id}}">
+      <textarea class="col-12 blogText" placeholder="Add your comment"></textarea>
+      <button class="btn mt-2" type="submit" form="{{blogs.id}}">comment</button>
+    </form>
   </div>
 </div>
+<script src="/js/blogview.js"></script>

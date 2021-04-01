@@ -36,7 +36,7 @@ const signupFormHandler = async (event) => {
     if (response.ok) {
       document.location.replace('/');
     } else {
-      alert('Failed to sign up.');
+      alert('Passwords must be at least 8 characters long, and the email must be valid');
     }
   }
 };

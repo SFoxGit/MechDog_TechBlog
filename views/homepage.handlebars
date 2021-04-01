@@ -1,10 +1,14 @@
 <div class="col-12">
   <div class="row">
-    <div class="col-12">MechDog TechBlogs</div>
+    <div class="col-12 subhead">Mech<span style="color:white">Dog</span> Tech<span class="white">Blogs</span></div>
     {{#each blogs as |blog|}}
-    <div class="col-12 bg-dark text-light"><a href="/blogs/{{blog.id}}">{{blog.title}}</a></div>
-    <div class="col-6">{{blog.user.username}}</div>
-    <div class="col-6">{{format_date blog.createdAt}}</div>
+    <div class="col-12 comments">
+      <div class="row d-flex">
+        <div class="col-12 blogLink"><a href="/api/blogs/view/{{blog.id}}">{{blog.title}}</a></div>
+        <div class="col-4"></div>
+        <div class="col-8 text-right">{{blog.user.username}} {{format_date blog.createdAt}}</div>
+      </div>
+    </div>
     {{/each}}
   </div>
 </div>
