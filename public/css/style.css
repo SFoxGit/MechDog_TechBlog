@@ -89,9 +89,13 @@ a {
 .blogC {
   background-color: teal;
   color: white;
-  
 }
 
+.blog-title {
+  background-color: teal;
+  color: white;
+  font-size: 30px;
+}
 
 .comments {
   border: solid;
@@ -120,4 +124,26 @@ a {
 
 .form-group {
   color: white;
+}
+
+@media only screen and (max-width: 1200px) {
+  .navLinks {
+    font-size: 30px;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .navLinks {
+    font-size: 20px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .navLinks {
+    font-size: 30px;
+  }
+  .justify-content-end {
+    display: flex;
+    justify-content: center !important;
+  }
 }

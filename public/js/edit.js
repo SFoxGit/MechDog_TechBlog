@@ -1,11 +1,12 @@
-const newBlogText = document.querySelector('.blogText');
+const newBlogText = document.querySelector('#message-post');
+const newBlogtitle = document.querySelector('#getTitle');
 const form = document.querySelector(".update-form");
 const id = form.getAttribute('id')
 
 const blogUpdate = async (event) => {
   // await event.preventDefault();
   console.log(id)
-  const message = await JSON.stringify({ "message": newBlogText.value });
+  const message = await JSON.stringify({ "message": newBlogText.value, "title": newBlogtitle.value });
   console.log(message);
   const updateBlog = await fetch(`/api/blogs/${id}`, {
     method: 'PUT',

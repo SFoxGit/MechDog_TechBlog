@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { User, Blogs, Comments } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-router.post('/', async (req, res) => {
+router.post('/', withAuth, async (req, res) => {
   try {
     console.log(req.body);
     const blogData = await Blogs.create({
@@ -16,7 +16,7 @@ router.post('/', async (req, res) => {
   }
 });
 
-router.put('/:id', async (req, res) => {
+router.put('/:id', withAuth, async (req, res) => {
   try {
     console.log(req.params.id, req.body);
     const blogData = await Blogs.update(req.body,

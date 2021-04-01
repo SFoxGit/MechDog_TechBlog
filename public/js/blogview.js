@@ -1,6 +1,7 @@
 const newBlogText = document.querySelector('.blogText');
 const form = document.querySelector(".update-form");
 
+
 const postComment = async () => {
   const message = await JSON.stringify({ "message": newBlogText.value, "blogId": form.getAttribute('id') });
 
@@ -21,3 +22,7 @@ const postComment = async () => {
 console.log(form.getAttribute('id'))
 
 form.addEventListener('submit', postComment)
+
+const userId = document.querySelectorAll('.userId')
+
+userId.forEach(userID => console.log(userID.dataset.userId))
